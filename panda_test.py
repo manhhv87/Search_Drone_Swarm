@@ -31,13 +31,16 @@ world.attachRigidBody(node)
 model = loader.loadModel('models/box.egg')
 model.flattenLight()
 model.reparentTo(np)
-model.addForce(LinearVectorForce(1,0,) )
+model.addForce(LinearVectorForce(1, 0,))
 
 # Update
+
+
 def update(task):
     dt = globalClock.getDt()
     world.doPhysics(dt)
     return task.cont
+
 
 taskMgr.add(update, 'update')
 base.run()
